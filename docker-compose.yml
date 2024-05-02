@@ -1,0 +1,15 @@
+version: '3.1'
+services:
+  web:
+    image: odoo:${ODOO_VERSION}
+    depends_on:
+      - db
+    ports:
+      - "3000:8069"
+  db:
+    image: postgres:${POSTGRESS_VERSION}
+    ports:
+      - "3001:5432"
+    env_file:
+      - pg.env
+    
